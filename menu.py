@@ -1,3 +1,4 @@
+from fastapi import FastAPI
 import requests
 
 url = "https://api.hfs.purdue.edu/menus/v3/GraphQL"
@@ -29,7 +30,7 @@ query getLocationMenu($name: String!, $date: Date!) {
 }
 """
 
-variables = {"name": "Earhart", "date": "2025-09-04"}
+variables = {"name": "Earhart", "date": "2025-09-10"}
 
 response = requests.post(url, json={
     "operationName": "getLocationMenu",

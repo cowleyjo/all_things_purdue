@@ -1,6 +1,6 @@
 import requests
 
-building_ids = ",".join(map(str, [7, 11, 12]))
+building_ids = ",".join(map(str, [7]))
 start_date = "8/21/2025"
 end_date = "10/9/2025"
 
@@ -15,4 +15,7 @@ response = requests.get(url, headers=headers)
 
 data = response.json()
 
-print(data)
+for location in data["locations"]:
+    print(f"Location: {location['formalName']}")
+    for time in location["hours"]:
+        print(time)
