@@ -1,4 +1,5 @@
 import requests
+import time
 
 url = "https://api.hfs.purdue.edu/menus/v3/GraphQL"
 
@@ -29,7 +30,13 @@ query getLocationMenu($name: String!, $date: Date!) {
 }
 """
 
-variables = {"name": "Earhart", "date": "2025-09-04"}
+date = time.localtime()
+
+date_month = str(date.tm_mon) if date.tm_mon >= 10 else f"0{date.tm_mon}"
+
+date_day = str(date.tm_mday) if date.tm_mday >= 10 else f"0{date.tm_mday}"
+
+variables = {"name": "Earhart", "date": f"{date.tm_year}-{date_month}-{date_day}"}
 
 response = requests.post(url, json={
     "operationName": "getLocationMenu",
