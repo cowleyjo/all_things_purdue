@@ -1,3 +1,4 @@
+from fastapi import FastAPI
 import requests
 import time
 
@@ -30,6 +31,7 @@ query getLocationMenu($name: String!, $date: Date!) {
 }
 """
 
+<<<<<<< HEAD
 date = time.localtime()
 
 date_month = str(date.tm_mon) if date.tm_mon >= 10 else f"0{date.tm_mon}"
@@ -37,6 +39,9 @@ date_month = str(date.tm_mon) if date.tm_mon >= 10 else f"0{date.tm_mon}"
 date_day = str(date.tm_mday) if date.tm_mday >= 10 else f"0{date.tm_mday}"
 
 variables = {"name": "Earhart", "date": f"{date.tm_year}-{date_month}-{date_day}"}
+=======
+variables = {"name": "Earhart", "date": "2025-09-10"}
+>>>>>>> 5e6931140cc493412b3898e7176f94e963ef8a79
 
 response = requests.post(url, json={
     "operationName": "getLocationMenu",
