@@ -57,7 +57,7 @@ def get_food_info():
     }
     """
 
-    variables = {"name": "Earhart", "date": "2025-09-10"}
+    variables = {"name": "Earhart", "date": "2025-09-21"}
 
     response = requests.post(url, json={
         "operationName": "getLocationMenu",
@@ -68,4 +68,4 @@ def get_food_info():
     return response
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port="8000")
+    uvicorn.run(app, host="0.0.0.0", port=8000)
